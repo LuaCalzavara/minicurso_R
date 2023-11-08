@@ -194,13 +194,15 @@ print(z)
 E quando a condição não é atendida ?
 
 ```{r}
-x <- 5
+# x <- 5
+# 
+# if (x < 0){
+#   y <- (-x)
+# }
+# 
+# print(y)
 
-if (x < 0){
-  y <- (-x)
-}
-
-print(y)
+# Error in print(y) : object 'y' not found
 ```
 Nessas situações, um ERROR surge, porque o R não conseguiu completar a operação.
 Uma alternativa que temos é utilixar _else_:
@@ -503,7 +505,8 @@ Agora chegamos a parte onde iremos mexer na base de dados.
 ### 1. Conhecendo a nossa base
 
 ```{r}
-View(base_acre_2018)
+#View(base_acre_2018)
+
 ```
 
 Com View() abrimos uma aba que nos permite visualizar todo o _data.frame_. Contudo, quando estamos lidando com bases muito grandes, não é possível percorrer com os olhos exaustivamente a base. Para isso, podemos olhar, só as primeiras, por exemplo:
@@ -667,12 +670,13 @@ Para exportar, utilizaremos outra função do pacote _rio_. O funcionamento é m
 Se eu quero exportar para alguma pasta específica, nesse caso, "Downloads", eu utilizaria o seguinte caminho:
 
 ```{r}
-export("C:\\Users\\Lua\\Downloads\\base_final.csv", base_municipio) #São dois argumento: 1. o caminho de destino da base com o nome que eu quero exportar + o tipo (.csv); 2. o objeto
+export(base_municipio, "C:\\Users\\Lua\\Downloads\\base_final.csv") #São dois argumento: 1. o caminho de destino da base com o nome que eu quero exportar + o tipo (.csv); 2. o objeto
+??export
 ```
 
 mas se eu quero exportar para a pasta onde está o script:
 ```{r}
-export("base_final.csv", base_municipio)
+export(base_municipio, "base_final.csv")
 ```
 
 Reparem que eu escrevi "base_final.csv". Isso porque eu posso nomear da forma que quiser este objeto quando expotá-lo. Não precisa ser o mesmo utilizado dentro do ambiente do Rstudio.
